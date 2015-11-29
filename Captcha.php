@@ -67,9 +67,29 @@ class Captcha
 		return $this->left_operand;
 	}
 
-	public function getResultCaptcha(){
+	public function getQuesttionCaptcha(){
 		return $this->getLeftOperand()." ".$this->getOperator()." ".$this->getRightOperand()." = ?";
 	}
+
+	public function generate($random){
+		$this->setPattern($random->randomPattern());
+		$this->setOperator($random->randomOperator());
+		$this->setLeftOperand($random->randomOperand());
+		$this->setRightOperand($random->randomOperand());
+	}
+
+	// public function randomPattern(){
+	// 	return rand(1,2);
+	// }
+
+	// public function randomOperator()
+	// {
+	// 	return rand(1,2);
+	// }
+	// public function randomOperand()
+	// {
+	// 	return rand(0,10);
+	// }
 
 }
  ?>
